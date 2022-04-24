@@ -24,9 +24,6 @@
 		<activity
 			android:name=".SettingActivity"
 			android:exported="true" />
-		<activity
-			android:name=".DebugActivity"
-			android:exported="false" />
 	</application>
 
 </manifest>
