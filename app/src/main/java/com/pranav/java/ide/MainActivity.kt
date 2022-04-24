@@ -21,9 +21,6 @@ import androidx.appcompat.widget.Toolbar
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
-import com.google.common.base.Charsets
-import com.google.common.io.ByteStreams
-import com.google.common.io.Files
 import com.googlecode.d2j.smali.BaksmaliCmd
 import com.pranav.java.ide.compiler.CompileTask
 import com.pranav.lib_android.code.disassembler.ClassFileDisassembler
