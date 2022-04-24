@@ -326,7 +326,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun formatSmali(inp: String): String {
 
-        val lines: List<String> = inp.split("\n").toList()
+        val lines = ArrayList(inp.split("\n").toList()) // Convert array to arraylist
 
         var insideMethod = false
 
