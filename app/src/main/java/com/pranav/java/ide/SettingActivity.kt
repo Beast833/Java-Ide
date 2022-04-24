@@ -63,8 +63,9 @@ class SettingActivity : AppCompatActivity() {
 
         /* Select Version in Spinner based on SharedPreferences Value */
         var count = 0
-        for (version in javaVersions) {
-            if (version.toFloat().equals(settings.getFloat("javaVersion", 7.0f))) {
+        for (javaVersion in javaVersions) {
+            val version = javaVersion.toFloat()
+            if (version == settings.getFloat("javaVersion", 7.0f)) {
                 javaVersions_spinner.setSelection(count)
                 break
             }

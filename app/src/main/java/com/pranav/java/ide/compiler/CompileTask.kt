@@ -24,15 +24,15 @@ class CompileTask(context: Context, listeners: CompilerListeners) : Thread() {
 
     private var errorsArePresent = false
 
-    private lateinit var activity: MainActivity
+    private var activity: MainActivity
 
-    private lateinit var listener: CompilerListeners
+    private var listener: CompilerListeners
 
-    lateinit var STAGE_CLEAN: String
-    lateinit var STAGE_ECJ: String
-    lateinit var STAGE_D8TASK: String
-    lateinit var STAGE_LOADING_DEX: String
-    lateinit var builder: JavaBuilder
+    var STAGE_CLEAN: String
+    var STAGE_ECJ: String
+    var STAGE_D8TASK: String
+    var STAGE_LOADING_DEX: String
+    var builder: JavaBuilder
 
     init {
         activity = context as MainActivity
