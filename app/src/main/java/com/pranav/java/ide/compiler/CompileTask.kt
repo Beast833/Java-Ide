@@ -19,8 +19,8 @@ import java.lang.reflect.InvocationTargetException
 
 class CompileTask(context: Context, listeners: CompilerListeners) : Thread() {
 
-    private var d8Time: Long = 0f
-    private var ecjTime: Long = 0f
+    private var d8Time: Long = 0
+    private var ecjTime: Long = 0
 
     private var errorsArePresent = false
 
