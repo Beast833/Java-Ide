@@ -5,7 +5,7 @@ import android.content.Context
 import android.os.Process
 import android.util.Log
 import com.pranav.lib_android.util.FileUtil
-import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 
 class ApplicationLoader : Application() {
 
@@ -21,12 +21,12 @@ class ApplicationLoader : Application() {
 					MaterialAlertDialogBuilder(mContext)
 				        .setTitle("An error occurred")
 				        .setMessage(errorMessage)
-			        	.setPositiveButton("Quit", {_, _ -> finish()})
+			        	.setPositiveButton("Quit", {_, _ ->
+			        	    Process.killProcess(Process.myPid())
+			        	    System.exit(0)
+			        	})
 				        .create()
 				        .show()
-
-					Process.killProcess(Process.myPid())
-					System.exit(0)
 
 					uncaughtExceptionHandler?.uncaughtException(thread, throwable)
 				}
