@@ -98,8 +98,7 @@ class MainActivity : AppCompatActivity() {
                     val stubs = File(FileUtil.getClasspathDir(), "/core-lambda-stubs.jar")
                     if (!stubs.exists()
                             && getSharedPreferences("compiler_settings", Context.MODE_PRIVATE)
-                                    .getString("javaVersion", "7.0")
-                                    .equals("8.0")) {
+                                    .getFloat("javaVersion", 7.0f) >= 8.0f) {
                         try {
                             stubs.writeBytes(getAssets().open("core-lambda-stubs.jar").readBytes())
                         } catch (e: Exception) {
@@ -130,7 +129,7 @@ class MainActivity : AppCompatActivity() {
     /* To Change visible to user Stage TextView Text to actually compiling stage in Compile.java */
     fun changeLoadingDialogBuildStage(stage: String) {
         if (loadingDialog.isShowing()) {
-            /* So, this method is also triggered from another thread (Compile.java)
+            /* So, this method is also triggered from another thread (CompileTask.kt)
              * We need to make sure that this code is executed on main thread */
             runOnUiThread {
                     val stage_txt: TextView? = loadingDialog.findViewById(R.id.stage_txt)

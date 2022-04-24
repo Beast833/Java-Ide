@@ -19,8 +19,8 @@ import java.lang.reflect.InvocationTargetException
 
 class CompileTask(context: Context, listeners: CompilerListeners) : Thread() {
 
-    private var d8Time: Long = 0
-    private var ecjTime: Long = 0
+    private var d8Time: Long = 0f
+    private var ecjTime: Long = 0f
 
     private var errorsArePresent = false
 
@@ -54,7 +54,6 @@ class CompileTask(context: Context, listeners: CompilerListeners) : Thread() {
             FileUtil.deleteFile(FileUtil.getBinDir())
             File(FileUtil.getBinDir()).mkdirs()
             val mainFile = File(FileUtil.getJavaDir(), "Main.java")
-            Files.createParentDirs(mainFile)
             // a simple workaround to prevent calls to system.exit
             mainFile.writeText(
                     activity.editor

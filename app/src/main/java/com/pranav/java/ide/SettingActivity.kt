@@ -64,7 +64,7 @@ class SettingActivity : AppCompatActivity() {
         /* Select Version in Spinner based on SharedPreferences Value */
         var count = 0
         for (version in javaVersions) {
-            if (version.equals(settings.getString("javaVersion", "7.0"))) {
+            if (version.equals(settings.getString("javaVersion", 7.0f))) {
                 javaVersions_spinner.setSelection(count)
                 break
             }
@@ -76,12 +76,12 @@ class SettingActivity : AppCompatActivity() {
                     override fun onItemSelected(
                             adapterView: AdapterView<*>?, view: View?, i: Int, l: Long) {
                         settings.edit()
-                                .putString("javaVersion", javaVersions[i])
+                                .putFloat("javaVersion", javaVersions[i].toFloat())
                                 .apply()
                         Log.e(TAG, "Selected Java Version (By User): " + javaVersions[i])
                     }
 
-                    override fun onNothingSelected(adapterView: AdapterView<*>?) {}
+                    override fun onNothingSelected(adapterView: AdapterView<*>?)
                 }
 
         buildClasspathDialog()
